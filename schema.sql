@@ -1,0 +1,30 @@
+CREATE TABLE users (
+    id INT PRIMARY KEY,
+    name VARCHAR(255) UNIQUE NOT NULL,
+    email VARCHAR(255) UNIQUE,
+    cellphone VARCHAR(255) UNIQUE,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE categories (
+    id INT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL UNIQUE,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE transactions (
+    id INT PRIMARY KEY,
+    user_id INT NOT NULL,
+    category_id INT NOT NULL,
+    type ENUM('income', 'expense') NOT NULL,
+    amount DECIMAL(15, 2) NOT NULL,
+    description TEXT,
+    interval ENUM('daily', 'weekly', 'monthly', 'yearly', 'none') NOT NULL,
+    date DATE NOT NULL,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (category_id) REFERENCES categories(id)
+);
