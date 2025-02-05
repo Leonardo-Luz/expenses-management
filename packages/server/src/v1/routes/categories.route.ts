@@ -6,7 +6,7 @@ export const router = express.Router();
 
 router.get('/', controller.getAllHandler);
 
-router.get('/:id', controller.getByIdHandler);
+router.get('/:id', controller.getByPkHandler);
 
 router.post('/', controller.createHandler);
 

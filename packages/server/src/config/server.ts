@@ -16,9 +16,10 @@ export class Server {
 	private API_PORT = (process.env.POSTGRES_PORT || 3000) as unknown as number;
 
 	constructor() {
+		this.databaseSync();
+
 		this.app = express();
 
-		this.databaseSync();
 		this.middlewares();
 
 		this.app.use(rules)
@@ -29,13 +30,14 @@ export class Server {
 
 	private routes = () => {
 		this.app.use('/api/v1/health', healthRouter);
-		this.app.use('/api/v1/users', categoriesRouter);
-		this.app.use('/api/v1/messages', transactionsRouter);
-		this.app.use('/api/v1/chats', usersRouter);
+		this.app.use('/api/v1/categories', categoriesRouter);
+		this.app.use('/api/v1/transactions', transactionsRouter);
+		this.app.use('/api/v1/users', usersRouter);
 
 		this.app.use((req: Request, res: Response) => {
 			res.status(404).json({ error: 'Not Found' });
 		});
+
 	};
 
 	private middlewares = () => {

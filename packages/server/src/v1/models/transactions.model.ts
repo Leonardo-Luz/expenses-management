@@ -10,20 +10,15 @@ export interface transactionsInterface extends Model<transactions>,
 export const transactionsModel = sequelize.define<transactionsInterface>('transactions', {
 	id: {
 		primaryKey: true,
-		type: DataTypes.UUIDV4,
-		autoIncrement: true
+		type: DataTypes.STRING,
 	},
 	user_id: {
 		allowNull: false,
-		type: DataTypes.UUIDV4,
-		references: {
-		}
+		type: DataTypes.STRING,
 	},
 	category_id: {
 		allowNull: false,
-		type: DataTypes.UUIDV4,
-		references: {
-		}
+		type: DataTypes.STRING,
 	},
 	type: {
 		allowNull: false,
