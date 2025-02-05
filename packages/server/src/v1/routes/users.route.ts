@@ -1,12 +1,12 @@
 import express from "express";
 
-import controller from "../controllers/users.controller";
+import { controller } from "../controllers/users.controller";
 
 export const router = express.Router();
 
 router.get('/', controller.getAllHandler);
 
-router.get('/:id', controller.getByIdHandler);
+router.get('/:id', controller.getByPkHandler);
 
 router.post('/', controller.createHandler);
 

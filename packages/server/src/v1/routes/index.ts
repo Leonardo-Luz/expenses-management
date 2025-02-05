@@ -1,4 +1,4 @@
-export { router as chatRouter } from "./users.route";
-export { router as messageRouter } from "./transactions.route";
-export { router as userRouter } from "./categories.route";
+export { router as usersRouter } from "./users.route";
+export { router as transactionsRouter } from "./transactions.route";
+export { router as categoriesRouter } from "./categories.route";
 export { router as healthRouter } from "./health.route";

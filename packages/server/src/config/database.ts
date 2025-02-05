@@ -14,7 +14,17 @@ class Database {
 	}
 
 	private async connectToPostgres() {
-		this.sequelize = new Sequelize(this.POSTGRES_DB, this.POSTGRES_USER, this.POSTGRES_PASSWORD, {
+		// this.sequelize = new Sequelize(this.POSTGRES_DB, this.POSTGRES_USER, this.POSTGRES_PASSWORD, {
+		// database: this.POSTGRES_DB,
+		// username: this.POSTGRES_USER,
+		// password: this.POSTGRES_PASSWORD,
+		// 	host: this.POSTGRES_HOST,
+		// 	port: this.POSTGRES_PORT,
+		// 	dialect: 'postgres',
+		// 	logging: false
+		// });
+
+		this.sequelize = new Sequelize({
 			database: this.POSTGRES_DB,
 			username: this.POSTGRES_USER,
 			password: this.POSTGRES_PASSWORD,

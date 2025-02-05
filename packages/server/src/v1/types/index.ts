@@ -1,5 +1,7 @@
+import { AbstractDataTypeConstructor } from "sequelize";
+
 export type users = {
-	id: string,
+	id: AbstractDataTypeConstructor,
 	name: string,
 	email?: string,
 	cellphone?: string,
@@ -7,7 +9,7 @@ export type users = {
 	updatedAt: Date,
 }
 export type categories = {
-	id: string,
+	id: AbstractDataTypeConstructor,
 	name: string,
 	createdAt: Date,
 	updatedAt: Date,
@@ -25,9 +27,9 @@ export enum transaction_interval {
 	none = "none"
 }
 export type transactions = {
-	id: string;
-	user_id: string;
-	category_id: string;
+	id: AbstractDataTypeConstructor;
+	user_id: AbstractDataTypeConstructor;
+	category_id: AbstractDataTypeConstructor;
 	type: transaction_type;
 	amount: string;
 	description: string;

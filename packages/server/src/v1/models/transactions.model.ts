@@ -16,10 +16,14 @@ export const transactionsModel = sequelize.define<transactionsInterface>('transa
 	user_id: {
 		allowNull: false,
 		type: DataTypes.UUIDV4,
+		references: {
+		}
 	},
 	category_id: {
 		allowNull: false,
 		type: DataTypes.UUIDV4,
+		references: {
+		}
 	},
 	type: {
 		allowNull: false,
