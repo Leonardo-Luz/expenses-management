@@ -13,6 +13,46 @@ This project was created to help manage personal expenses.  It provides a basic 
 * **Database:** PostgreSQL
 * **API:** RESTful
 
+## Installation
+
+**Clone & Setup:**
+
+```bash
+git clone https://github.com/leonardo-luz/expenses-management
+
+cd expenses-management
+
+cd packages/client
+npm install
+touch .env
+cd ../..
+
+cd packages/server
+npm install
+touch .env
+```
+
+**Enviroment Variables:**
+
+* Client ~/expenses-management/packages/client/.env
+
+```env
+API_PORT=3000
+API_HOST=localhost
+```
+
+* Server ~/expenses-management/packages/server/.env
+
+```env
+POSTGRES_DB=YOUR_DATABASE
+POSTGRES_HOST=localhost
+POSTGRES_PORT=5432
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+
+API_PORT=3000
+API_HOST=localhost
+```
 
 ## Database
 
