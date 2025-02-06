@@ -15,7 +15,7 @@ This project was created to help manage personal expenses.  It provides a basic 
 
 <details>
   <summary><strong>Client Dependencies</strong></summary>
-  <ul>
+  <ol>
     <li>
         <details>
           <summary><em>react-router-dom</em></summary>
@@ -28,7 +28,7 @@ This project was created to help manage personal expenses.  It provides a basic 
           <p>Page style</p>
         </details>
     </li>
-  </ul>
+  </ol>
 </details>
 
 ## Installation
