@@ -12,8 +12,8 @@ import {
 
 export class Server {
 	private app: Application;
-	private API_HOST = (process.env.POSTGRES_HOST || 'localhost') as string;
-	private API_PORT = (process.env.POSTGRES_PORT || 3000) as unknown as number;
+	private API_HOST = (process.env.API_HOST || 'localhost') as string;
+	private API_PORT = (process.env.API_PORT || 3000) as unknown as number;
 
 	constructor() {
 		this.databaseSync();
