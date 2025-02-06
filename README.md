@@ -13,6 +13,24 @@ This project was created to help manage personal expenses.  It provides a basic 
 * **Database:** PostgreSQL
 * **API:** RESTful
 
+<details>
+  <summary><strong>Client Dependencies</strong></summary>
+  <ul>
+    <li>
+        <details>
+          <summary><em>react-router-dom</em></summary>
+          <p>Create routes</p>
+        </details>
+    </li>
+    <li>
+        <details>
+          <summary><em>tailwindcss</em></summary>
+          <p>Page style</p>
+        </details>
+    </li>
+  </ul>
+</details>
+
 ## Installation
 
 **Clone & Setup:**
