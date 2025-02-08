@@ -24,7 +24,7 @@ function App() {
         </div>
         <div className='w-[70%] self-start'>
           <Navbar />
-          <div className='w-[97%] m-5 p-6 bg-mint-500 rounded-2xl'>
+          <div className='w-[97%] m-5 py-4 px-6 bg-mint-500 rounded-2xl shadow-md'>
             <Outlet />
           </div>
         </div>
