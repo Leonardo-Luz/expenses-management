@@ -6,7 +6,7 @@ import { Footer } from './components/Footer'
 
 function App() {
   return (
-    <div className='flex flex-col justify-between bg-bg-light  text-emerald-900 h-[100vh]'>
+    <div className='flex flex-col justify-between bg-bg-light text-emerald-900 min-h-[100vh]'>
       <nav className='w-full flex flex-row items-center'>
         <div className='w-[28vw] self-start'>
           <DropMenu title='Menu' open>
@@ -24,7 +24,7 @@ function App() {
         </div>
         <div className='w-[70%] self-start'>
           <Navbar />
-          <div className='w-[97%] m-5 py-4 px-6 bg-mint-500 rounded-2xl shadow-md'>
+          <div className='w-[97%]'>
             <Outlet />
           </div>
         </div>

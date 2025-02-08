@@ -1,4 +1,4 @@
-import { Form, FormElement } from "../components/Form"
+import { Form, FormElement, FormSubmitButton } from "../components/Form"
 
 export const TransactionsRegister = () => {
   return (
@@ -29,6 +29,8 @@ export const TransactionsRegister = () => {
           <input type="text" className="outline-none w-full" />
         </FormElement>
       </Form>
+
+      <FormSubmitButton />
     </>
   )
 }
