@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@theme {
+	--color-mint-500: #A1EEBD;
+	--color-peach-500: #F6D6D6;
+	--color-pastyellow-500: #F6F7C4;
+	--color-pastblue-500: #7BD3EA;
+	--color-bg-light: #A9BFA8;
+}

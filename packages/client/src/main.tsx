@@ -1,9 +1,8 @@
 import { createRoot } from 'react-dom/client'
-import './reset.css'
 import './index.css'
 import App from './App.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { Error, Home } from './routes'
+import { CategoriesList, CategoriesRegister, Error, Home, TransactionsList, TransactionsRegister, UsersList, UsersRegister } from './routes'
 
 const router = createBrowserRouter([
   {
@@ -15,6 +14,30 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />
       },
+      {
+        path: '/transactions',
+        element: <TransactionsList />
+      },
+      {
+        path: '/categories',
+        element: <CategoriesList />
+      },
+      {
+        path: '/users',
+        element: <UsersList />
+      },
+      {
+        path: '/register/transactions',
+        element: <TransactionsRegister />
+      },
+      {
+        path: '/register/categories',
+        element: <CategoriesRegister />
+      },
+      {
+        path: '/register/users',
+        element: <UsersRegister />
+      }
     ]
   }
 ])
