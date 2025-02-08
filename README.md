@@ -28,6 +28,12 @@ This project was created to help manage personal expenses.  It provides a basic 
           <p>Page style</p>
         </details>
     </li>
+    <li>
+        <details>
+          <summary><em>axios</em></summary>
+          <p>HTTP requests</p>
+        </details>
+    </li>
   </ol>
 </details>
 
