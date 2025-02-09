@@ -3,14 +3,14 @@ export type users = {
 	name: string,
 	email?: string,
 	cellphone?: string,
-	createdAt: Date,
-	updatedAt: Date,
+	createdAt?: Date,
+	updatedAt?: Date,
 }
 export type categories = {
 	id: string,
 	name: string,
-	createdAt: Date,
-	updatedAt: Date,
+	createdAt?: Date,
+	updatedAt?: Date,
 }
 
 export enum transaction_type {
@@ -33,6 +33,6 @@ export type transactions = {
 	description: string;
 	interval: transaction_interval;
 	date: string;
-	createdAt: string;
-	updatedAt: string;
+	createdAt?: string;
+	updatedAt?: string;
 }

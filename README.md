@@ -30,6 +30,18 @@ This project was created to help manage personal expenses.  It provides a basic 
     </li>
     <li>
         <details>
+          <summary><em>fontawesome</em></summary>
+          <p>Icons</p>
+        </details>
+    </li>
+    <li>
+        <details>
+          <summary><em>zod + react-hook-form</em></summary>
+          <p>Handle Forms</p>
+        </details>
+    </li>
+    <li>
+        <details>
           <summary><em>axios</em></summary>
           <p>HTTP requests</p>
         </details>
@@ -76,6 +88,40 @@ POSTGRES_PASSWORD=postgres
 
 API_PORT=3000
 API_HOST=localhost
+```
+
+**Run**
+
+* Client - default url: http://localhost:5173
+
+```bash
+cd ~/expenses-management
+
+npm run client
+```
+
+OR
+
+```bash
+cd ~/expenses-management/packages/client
+
+npm run dev
+```
+
+* Server - default url: http://localhost:3000/api/v1
+
+```bash
+cd ~/expenses-management
+
+npm run server
+```
+
+OR
+
+```bash
+cd ~/expenses-management/packages/server
+
+npm run dev
 ```
 
 ## Database

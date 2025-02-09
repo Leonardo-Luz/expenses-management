@@ -31,24 +31,27 @@ export const DropMenu = ({ children, title, open }: dropMenuProps) => {
   const menu = useRef<HTMLDetailsElement>(null)
   const [icon, setIcon] = useState<IconDefinition>(faBars)
 
-  const toggleMenuHandler = (ev: MouseEvent<HTMLDetailsElement>) => {
-    (ev.currentTarget.open) ?
-      setIcon(faBars) :
-      setIcon(faXmark)
+  const toggleMenuHandler = () => {
+    if (menu.current) {
+      if (menu.current.open) {
+        setIcon(faBars)
+      }
+      else {
+        setIcon(faXmark)
+      }
+    }
   }
 
   useEffect(() => {
     if (open && menu.current) {
       setIcon(faXmark)
       menu.current.open = true
-    } else {
-      setIcon(faBars)
     }
   }, [menu])
 
   return (
-    <details ref={menu} onClick={toggleMenuHandler} className="m-5 rounded-2xl bg-mint-500">
-      <summary className="py-4 w-full  rounded-2xl bg-mint-500 marker:content-none cursor-pointer shadow-md"><FontAwesomeIcon className="w-[20%]" icon={icon} />{title}</summary>
+    <details ref={menu} className="m-5 rounded-2xl bg-mint-500">
+      <summary onClick={toggleMenuHandler} className="py-4 w-full  rounded-2xl bg-mint-500 marker:content-none cursor-pointer shadow-md"><FontAwesomeIcon className="w-[20%]" icon={icon} />{title}</summary>
       <div className="p-2.5 ">
         <ul className="inset-shadow-sm rounded-2xl  bg-peach-500 ">
           {children}

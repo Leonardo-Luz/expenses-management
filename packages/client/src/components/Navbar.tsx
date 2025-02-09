@@ -1,6 +1,6 @@
 import { faChevronLeft, faChevronRight, faMagnifyingGlass, faMoneyBill } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 
 export const Navbar = () => {

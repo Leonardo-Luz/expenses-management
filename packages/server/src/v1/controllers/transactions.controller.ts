@@ -2,7 +2,7 @@ import { Request, Response } from "express"
 import { service } from "../services/transactions.service"
 import { transactionsModel } from "../models/transactions.model"
 import { transactions } from "../types";
-import { UUIDV4 } from "sequelize";
+import { v4 } from "uuid";
 
 class Controller {
 	getAllHandler = async (req: Request, res: Response) => {
@@ -39,7 +39,7 @@ class Controller {
 
 			const newtransaction = {
 				...transaction,
-				id: UUIDV4
+				id: v4()
 			}
 
 			await service.create(newtransaction, transactionsModel);

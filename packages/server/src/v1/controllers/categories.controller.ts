@@ -3,6 +3,7 @@ import { service } from "../services/categories.service"
 import { categoriesModel } from "../models/categories.model"
 import { categories } from "../types";
 import { UUIDV4 } from "sequelize";
+import { v4 } from "uuid";
 
 class Controller {
 	getAllHandler = async (req: Request, res: Response) => {
@@ -37,12 +38,14 @@ class Controller {
 
 			// TODO: Add validation
 
-			const newcategory = {
+			console.log(category)
+
+			const newCategory = {
 				...category,
-				id: UUIDV4
+				id: v4()
 			}
 
-			await service.create(newcategory, categoriesModel);
+			await service.create(newCategory as any, categoriesModel);
 
 			res.status(200).json({ message: 'Category succefully created!' });
 		}

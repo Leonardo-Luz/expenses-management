@@ -2,7 +2,7 @@ import { NextFunction, Response, Request } from 'express';
 
 export const rules = (req: Request, res: Response, next: NextFunction) => {
 
-	const allowedOrigins = ['http://localhost:3000'];
+	const allowedOrigins = ['http://localhost:3000', 'http://localhost:5173'];
 	const origin = req.headers.origin;
 
 	if (allowedOrigins.includes(origin!)) {
