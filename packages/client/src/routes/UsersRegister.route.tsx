@@ -22,13 +22,6 @@ export const UsersRegister = () => {
   });
 
   const registerHandler = async (data: formData) => {
-
-    if (data.email && data.email.trim().match(''))
-      data.email = null
-
-    if (data.cellphone && data.cellphone.trim().match(''))
-      data.cellphone = null
-
     try {
       const response = await service.post('/users', {
         user: data
