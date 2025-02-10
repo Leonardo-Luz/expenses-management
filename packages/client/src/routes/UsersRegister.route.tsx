@@ -3,12 +3,13 @@ import { Form, FormElement } from "../components/Form"
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { service } from "../services/api.service";
+import axios from "axios";
 
 const formSchema = z.object({
   name: z.string()
     .min(1, 'Name is required!'),
-  email: z.string(),
-  cellphone: z.string(),
+  email: z.string().nullable(),
+  cellphone: z.string().nullable(),
 })
 
 type formData = z.infer<typeof formSchema>
@@ -21,11 +22,23 @@ export const UsersRegister = () => {
   });
 
   const registerHandler = async (data: formData) => {
-    const response = await service.post('/users', {
-      user: data
-    })
 
-    alert(JSON.stringify(response))
+    if (data.email && data.email.trim().match(''))
+      data.email = null
+
+    if (data.cellphone && data.cellphone.trim().match(''))
+      data.cellphone = null
+
+    try {
+      const response = await service.post('/users', {
+        user: data
+      })
+      alert(JSON.stringify(response.data.message))
+    } catch (err: any) {
+      if (axios.isAxiosError(err)) {
+        alert(err.message)
+      }
+    }
   }
 
   return (
