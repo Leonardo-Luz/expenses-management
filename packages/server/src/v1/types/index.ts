@@ -1,8 +1,8 @@
 export type users = {
 	id: string,
 	name: string,
-	email?: string,
-	cellphone?: string,
+	email: string | null,
+	cellphone: string | null,
 	createdAt: Date,
 	updatedAt: Date,
 }

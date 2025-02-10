@@ -37,6 +37,11 @@ class Controller {
 
 			// TODO: Add validation
 
+			user.email = user.email?.trim() === "" ? null : user.email;
+
+			user.cellphone = user.cellphone?.trim() === "" ? null : user.cellphone;
+
+
 			const newUser = {
 				...user,
 				id: v4()
