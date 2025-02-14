@@ -54,7 +54,7 @@ export const UsersRegister = () => {
         <FormElement title="Email">
           <input
             type="text"
-            className={`outline-none w-full ${errors.name ? 'text-red-700' : ''}`}
+            className={`outline-none w-full ${errors.email ? 'text-red-700' : ''}`}
             autoComplete="off"
             {...register('email')}
           />
@@ -68,7 +68,7 @@ export const UsersRegister = () => {
         <FormElement title="Cellphone">
           <input
             type="text"
-            className={`outline-none w-full ${errors.name ? 'text-red-700' : ''}`}
+            className={`outline-none w-full ${errors.cellphone ? 'text-red-700' : ''}`}
             autoComplete="off"
             {...register('cellphone')}
           />
