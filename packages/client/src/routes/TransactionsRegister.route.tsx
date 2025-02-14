@@ -38,115 +38,115 @@ export const TransactionsRegister = () => {
         <FormElement title="Name">
           <input
             type="text"
-            className="outline-none w-full"
+            className={`outline-none w-full ${errors.name ? 'text-red-700' : ''}`}
             autoComplete="off"
             {...register('name')}
           />
-          {
-            errors.name &&
-            <span>
-              {errors.name.message}
-            </span>
-          }
         </FormElement>
+        {
+          errors.name &&
+          <span className="text-right text-red-700 font-bold">
+            {errors.name.message}
+          </span>
+        }
         <FormElement title="Amount">
           <input
             type="text"
-            className="outline-none w-full"
+            className={`outline-none w-full ${errors.name ? 'text-red-700' : ''}`}
             autoComplete="off"
             {...register('name')}
           />
-          {
-            errors.name &&
-            <span>
-              {errors.name.message}
-            </span>
-          }
         </FormElement>
+        {
+          errors.name &&
+          <span className="text-right text-red-700 font-bold">
+            {errors.name.message}
+          </span>
+        }
         <FormElement title="Description">
           <input
             type="text"
-            className="outline-none w-full"
+            className={`outline-none w-full ${errors.name ? 'text-red-700' : ''}`}
             autoComplete="off"
             {...register('name')}
           />
-          {
-            errors.name &&
-            <span>
-              {errors.name.message}
-            </span>
-          }
         </FormElement>
+        {
+          errors.name &&
+          <span className="text-right text-red-700 font-bold">
+            {errors.name.message}
+          </span>
+        }
         <FormElement title="Date">
           <input
             type="text"
-            className="outline-none w-full"
+            className={`outline-none w-full ${errors.name ? 'text-red-700' : ''}`}
             autoComplete="off"
             {...register('name')}
           />
-          {
-            errors.name &&
-            <span>
-              {errors.name.message}
-            </span>
-          }
         </FormElement>
+        {
+          errors.name &&
+          <span className="text-right text-red-700 font-bold">
+            {errors.name.message}
+          </span>
+        }
         <FormElement title="Interval">
           <input
             type="text"
-            className="outline-none w-full"
+            className={`outline-none w-full ${errors.name ? 'text-red-700' : ''}`}
             autoComplete="off"
             {...register('name')}
           />
-          {
-            errors.name &&
-            <span>
-              {errors.name.message}
-            </span>
-          }
         </FormElement>
+        {
+          errors.name &&
+          <span className="text-right text-red-700 font-bold">
+            {errors.name.message}
+          </span>
+        }
         <FormElement title="Type">
           <input
             type="text"
-            className="outline-none w-full"
+            className={`outline-none w-full ${errors.name ? 'text-red-700' : ''}`}
             autoComplete="off"
             {...register('name')}
           />
-          {
-            errors.name &&
-            <span>
-              {errors.name.message}
-            </span>
-          }
         </FormElement>
+        {
+          errors.name &&
+          <span className="text-right text-red-700 font-bold">
+            {errors.name.message}
+          </span>
+        }
         <FormElement title="Category_id">
           <input
             type="text"
-            className="outline-none w-full"
+            className={`outline-none w-full ${errors.name ? 'text-red-700' : ''}`}
             autoComplete="off"
             {...register('name')}
           />
-          {
-            errors.name &&
-            <span>
-              {errors.name.message}
-            </span>
-          }
         </FormElement>
+        {
+          errors.name &&
+          <span className="text-right text-red-700 font-bold">
+            {errors.name.message}
+          </span>
+        }
         <FormElement title="User_id">
           <input
             type="text"
-            className="outline-none w-full"
+            className={`outline-none w-full ${errors.name ? 'text-red-700' : ''}`}
             autoComplete="off"
             {...register('name')}
           />
-          {
-            errors.name &&
-            <span>
-              {errors.name.message}
-            </span>
-          }
         </FormElement>
+        {
+          errors.name &&
+          <span className="text-right text-red-700 font-bold">
+            {errors.name.message}
+          </span>
+        }
       </Form>
     </>
   )

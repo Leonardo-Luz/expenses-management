@@ -7,7 +7,7 @@ import axios from "axios";
 
 const formSchema = z.object({
   name: z.string()
-    .min(1, 'O nome é obrigatório')
+    .min(1, 'Name is required!')
 })
 
 type formData = z.infer<typeof formSchema>
@@ -37,17 +37,17 @@ export const CategoriesRegister = () => {
         <FormElement title="Name">
           <input
             type="text"
-            className="outline-none w-full"
+            className={`outline-none w-full ${errors.name ? 'text-red-700' : ''}`}
             autoComplete="off"
             {...register('name')}
           />
-          {
-            errors.name &&
-            <span>
-              {errors.name.message}
-            </span>
-          }
         </FormElement>
+        {
+          errors.name &&
+          <span className="text-right text-red-700 font-bold">
+            {errors.name.message}
+          </span>
+        }
       </Form>
     </>
   )

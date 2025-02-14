@@ -40,45 +40,45 @@ export const UsersRegister = () => {
         <FormElement title="Name">
           <input
             type="text"
-            className="outline-none w-full"
+            className={`outline-none w-full ${errors.name ? 'text-red-700' : ''}`}
             autoComplete="off"
             {...register('name')}
           />
-          {
-            errors.name &&
-            <span>
-              {errors.name.message}
-            </span>
-          }
         </FormElement>
+        {
+          errors.name &&
+          <span className="text-right text-red-700 font-bold">
+            {errors.name.message}
+          </span>
+        }
         <FormElement title="Email">
           <input
             type="text"
-            className="outline-none w-full"
+            className={`outline-none w-full ${errors.name ? 'text-red-700' : ''}`}
             autoComplete="off"
             {...register('email')}
           />
-          {
-            errors.email &&
-            <span>
-              {errors.email.message}
-            </span>
-          }
         </FormElement>
+        {
+          errors.email &&
+          <span className="text-right text-red-700 font-bold">
+            {errors.email.message}
+          </span>
+        }
         <FormElement title="Cellphone">
           <input
             type="text"
-            className="outline-none w-full"
+            className={`outline-none w-full ${errors.name ? 'text-red-700' : ''}`}
             autoComplete="off"
             {...register('cellphone')}
           />
-          {
-            errors.cellphone &&
-            <span>
-              {errors.cellphone.message}
-            </span>
-          }
         </FormElement>
+        {
+          errors.cellphone &&
+          <span className="text-right text-red-700 font-bold">
+            {errors.cellphone.message}
+          </span>
+        }
       </Form>
     </>
   )
