@@ -3,7 +3,7 @@ import { List } from "../components/List"
 import { service } from "../services/api.service"
 import { categories } from "../types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faMagnifyingGlass, faPaperclip, faTrash } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 export const CategoriesList = () => {
@@ -14,7 +14,20 @@ export const CategoriesList = () => {
     try {
       const response = await service.get('/categories', {})
 
-      setData(response.data)
+      setData(response.data.data)
+    } catch (err: any) {
+      if (axios.isAxiosError(err)) {
+        setErrMsg(err.message)
+      }
+    }
+  }
+
+  const trash = async (id: string) => {
+    try {
+      const response = await service.delete(`/categories/${id}`)
+
+      setData(data => data.filter(el => el.id != id))
+      alert(response.data.message)
     } catch (err: any) {
       if (axios.isAxiosError(err)) {
         setErrMsg(err.message)
@@ -41,15 +54,21 @@ export const CategoriesList = () => {
           (data && data.length > 0) ?
             data.map(el => (
               <td className="border-b-1">
-                <tr>{el.id}</tr>
-                <tr>{el.name}</tr>
-                <tr>{String(el.createdAt!)}</tr>
-                <tr>{String(el.updatedAt!)}</tr>
+                <div className="flex flex-row justify-between">
+                  <div className="flex flex-row items-center gap-4">
+                    <FontAwesomeIcon icon={faPaperclip} />
+                    <tr>Category: {el.name}</tr>
+                  </div>
+                  <div className="flex flex-row items-center gap-8">
+                    <FontAwesomeIcon className="cursor-pointer" onClick={() => { alert('WIP: Create update route!') }} icon={faEdit} />
+                    <FontAwesomeIcon className="cursor-pointer" onClick={() => confirm('Do you really want to delete this categorie?') ? trash(el.id) : ''} icon={faTrash} />
+                  </div>
+                </div>
               </td>
             )) : errMsg ?
               <h1><strong>{errMsg}</strong></h1>
               :
-              <h1><strong>Data not found!</strong></h1>
+              <h1><strong>Categories not registered!</strong></h1>
         }
       </List>
     </>

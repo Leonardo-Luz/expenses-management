@@ -3,7 +3,7 @@ import { List } from "../components/List"
 import { service } from "../services/api.service"
 import { transactions } from "../types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faMagnifyingGlass, faMoneyBillTransfer, faTrash } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 export const TransactionsList = () => {
@@ -14,7 +14,20 @@ export const TransactionsList = () => {
     try {
       const response = await service.get('/transactions', {})
 
-      setData(response.data)
+      setData(response.data.data)
+    } catch (err: any) {
+      if (axios.isAxiosError(err)) {
+        setErrMsg(err.message)
+      }
+    }
+  }
+
+  const trash = async (id: string) => {
+    try {
+      const response = await service.delete(`/transactions/${id}`)
+
+      setData(data => data.filter(el => el.id != id))
+      alert(response.data.message)
     } catch (err: any) {
       if (axios.isAxiosError(err)) {
         setErrMsg(err.message)
@@ -41,7 +54,16 @@ export const TransactionsList = () => {
           (data && data.length > 0) ?
             data.map(el => (
               <td className="border-b-1">
-                <tr>{el.id}</tr>
+                <div className="flex flex-row justify-between">
+                  <div className="flex flex-row items-center gap-4">
+                    <FontAwesomeIcon icon={faMoneyBillTransfer} />
+                    <tr>Name: {el.name}</tr>
+                  </div>
+                  <div className="flex flex-row items-center gap-8">
+                    <FontAwesomeIcon className="cursor-pointer" onClick={() => { alert('WIP: Create update route!') }} icon={faEdit} />
+                    <FontAwesomeIcon className="cursor-pointer" onClick={() => confirm('Do you really want to delete this transaction?') ? trash(el.id) : ''} icon={faTrash} />
+                  </div>
+                </div>
                 <tr>{el.user_id}</tr>
                 <tr>{el.category_id}</tr>
                 <tr>{el.type}</tr>
@@ -49,13 +71,11 @@ export const TransactionsList = () => {
                 <tr>{el.description}</tr>
                 <tr>{el.interval}</tr>
                 <tr>{el.date}</tr>
-                <tr>{el.createdAt}</tr>
-                <tr>{el.updatedAt}</tr>
               </td>
             )) : errMsg ?
               <h1><strong>{errMsg}</strong></h1>
               :
-              <h1><strong>Data not found!</strong></h1>
+              <h1><strong>Transactions not registered!</strong></h1>
         }
       </List>
     </>
