@@ -38,8 +38,6 @@ class Controller {
 
 			// TODO: Add validation
 
-			console.log(category)
-
 			const newCategory = {
 				...category,
 				id: v4()
