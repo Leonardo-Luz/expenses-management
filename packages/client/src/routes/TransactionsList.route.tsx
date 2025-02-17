@@ -57,20 +57,20 @@ export const TransactionsList = () => {
                 <div className="flex flex-row justify-between">
                   <div className="flex flex-row items-center gap-4">
                     <FontAwesomeIcon icon={faMoneyBillTransfer} />
-                    <tr>Name: {el.name}</tr>
+                    <tr>Transaction</tr>
                   </div>
                   <div className="flex flex-row items-center gap-8">
                     <FontAwesomeIcon className="cursor-pointer" onClick={() => { alert('WIP: Create update route!') }} icon={faEdit} />
                     <FontAwesomeIcon className="cursor-pointer" onClick={() => confirm('Do you really want to delete this transaction?') ? trash(el.id) : ''} icon={faTrash} />
                   </div>
                 </div>
-                <tr>{el.user_id}</tr>
-                <tr>{el.category_id}</tr>
-                <tr>{el.type}</tr>
-                <tr>{el.amount}</tr>
-                <tr>{el.description}</tr>
-                <tr>{el.interval}</tr>
-                <tr>{el.date}</tr>
+                <tr>User: {el.user.name}</tr>
+                <tr>Category: {el.category.name}</tr>
+                <tr>Type: {el.type}</tr>
+                <tr>Amount: {el.amount}</tr>
+                <tr>Description: {el.description}</tr>
+                <tr>Payment: {el.interval}</tr>
+                <tr>Expires: {String(el.date)}</tr>
               </td>
             )) : errMsg ?
               <h1><strong>{errMsg}</strong></h1>

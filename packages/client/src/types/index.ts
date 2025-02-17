@@ -27,6 +27,20 @@ export enum transaction_interval {
 export type transactions = {
 	id: string;
 	name: string;
+	user: users;
+	category: categories;
+	type: transaction_type;
+	amount: string;
+	description: string;
+	interval: transaction_interval;
+	date: string;
+	createdAt?: string;
+	updatedAt?: string;
+}
+
+export type transactionsReg = {
+	id: string;
+	name: string;
 	user_id: string;
 	category_id: string;
 	type: transaction_type;

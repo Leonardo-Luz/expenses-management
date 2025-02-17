@@ -22,7 +22,7 @@ export const FormElement = ({ children, title }: formElementProps) => {
       className="flex flex-row items-center gap-2 border-b-1"
     >
       <p className="w-[24%] text-right">{title}: </p>
-      <div className="w-[70%]">{children}</div>
+      <label className="w-[70%] flex flex-row items-center">{children}</label>
     </label>
   )
 }
