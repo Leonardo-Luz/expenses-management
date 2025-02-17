@@ -3,6 +3,9 @@ import './index.css'
 import App from './App.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { CategoriesList, CategoriesRegister, Error, Home, TransactionsList, TransactionsRegister, UsersList, UsersRegister } from './routes'
+import { TransactionsUpdate } from './routes/TransactionsUpdate.route.tsx'
+import { CategoriesUpdate } from './routes/CategoriesUpdate.route.tsx'
+import { UsersUpdate } from './routes/UsersUpdate.route.tsx'
 
 const router = createBrowserRouter([
   {
@@ -37,6 +40,18 @@ const router = createBrowserRouter([
       {
         path: '/register/users',
         element: <UsersRegister />
+      },
+      {
+        path: '/update/transactions/:id',
+        element: <TransactionsUpdate />
+      },
+      {
+        path: '/update/categories/:id',
+        element: <CategoriesUpdate />
+      },
+      {
+        path: '/update/users/:id',
+        element: <UsersUpdate />
       }
     ]
   }

@@ -65,13 +65,13 @@ class Controller {
 
 			// TODO: Add validation for each argument
 
-			response.setAttributes('description', transaction.description, {})
-			response.setAttributes('amount', transaction.amount, {})
-			response.setAttributes('date', transaction.date, {})
-			response.setAttributes('type', transaction.type, {})
-			response.setAttributes('interval', transaction.interval, {})
-			response.setAttributes('category_id', transaction.category_id, {})
-			response.setAttributes('user_id', transaction.user_id, {})
+			response.setDataValue('description', transaction.description)
+			response.setDataValue('amount', transaction.amount)
+			response.setDataValue('date', transaction.date)
+			response.setDataValue('type', transaction.type)
+			response.setDataValue('interval', transaction.interval)
+			response.setDataValue('category_id', transaction.category_id)
+			response.setDataValue('user_id', transaction.user_id)
 
 			await service.update(response);
 

@@ -5,8 +5,11 @@ import { categories } from "../types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faMagnifyingGlass, faPaperclip, faTrash } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const CategoriesList = () => {
+  const navigate = useNavigate()
+
   const [data, setData] = useState<categories[]>([]);
   const [errMsg, setErrMsg] = useState<string>();
 
@@ -60,7 +63,7 @@ export const CategoriesList = () => {
                     <tr>Category: {el.name}</tr>
                   </div>
                   <div className="flex flex-row items-center gap-8">
-                    <FontAwesomeIcon className="cursor-pointer" onClick={() => { alert('WIP: Create update route!') }} icon={faEdit} />
+                    <FontAwesomeIcon className="cursor-pointer" onClick={() => { navigate(`/update/categories/${el.id}`) }} icon={faEdit} />
                     <FontAwesomeIcon className="cursor-pointer" onClick={() => confirm('Do you really want to delete this categorie?') ? trash(el.id) : ''} icon={faTrash} />
                   </div>
                 </div>

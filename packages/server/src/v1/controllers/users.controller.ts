@@ -70,9 +70,9 @@ class Controller {
 
 			// TODO: Add validation for each argument
 
-			response.setAttributes('name', user.name, {})
-			response.setAttributes('email', user.email, {})
-			response.setAttributes('cellphone', user.cellphone, {})
+			response.setDataValue('name', user.name)
+			response.setDataValue('email', user.email)
+			response.setDataValue('cellphone', user.cellphone)
 
 			await service.update(response);
 

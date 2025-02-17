@@ -12,7 +12,7 @@ type dropMenuElementProps = {
 
 export const DropMenuElement = ({ icon, actionIcon, title, to }: dropMenuElementProps) => {
   return <NavLink to={to} className={({ isActive }) => isActive ?
-    'flex w-full transition-transform bg-mint-500 cursor-auto' :
+    'flex w-full font-bold transition-transform bg-mint-500 cursor-auto' :
     'flex w-full transition-transform hover:bg-mint-500 hover:rounded-2xl hover:scale-106 hover:z-10 hover:shadow-md'
   }>
     <li className="py-2 w-full flex items-center">

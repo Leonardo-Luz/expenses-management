@@ -5,8 +5,11 @@ import { transactions } from "../types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faMagnifyingGlass, faMoneyBillTransfer, faTrash } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const TransactionsList = () => {
+  const navigate = useNavigate()
+
   const [data, setData] = useState<transactions[]>([]);
   const [errMsg, setErrMsg] = useState<string>();
 
@@ -60,7 +63,7 @@ export const TransactionsList = () => {
                     <tr>Transaction</tr>
                   </div>
                   <div className="flex flex-row items-center gap-8">
-                    <FontAwesomeIcon className="cursor-pointer" onClick={() => { alert('WIP: Create update route!') }} icon={faEdit} />
+                    <FontAwesomeIcon className="cursor-pointer" onClick={() => { navigate(`/update/transactions/${el.id}`) }} icon={faEdit} />
                     <FontAwesomeIcon className="cursor-pointer" onClick={() => confirm('Do you really want to delete this transaction?') ? trash(el.id) : ''} icon={faTrash} />
                   </div>
                 </div>

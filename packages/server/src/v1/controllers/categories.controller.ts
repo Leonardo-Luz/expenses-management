@@ -66,7 +66,7 @@ class Controller {
 
 			// TODO: Add validation for each argument
 
-			response.setAttributes('name', category.name, {})
+			response.setDataValue('name', category.name)
 
 			await service.update(response);
 
