@@ -1,17 +1,23 @@
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { List } from "../components/List"
 import { service } from "../services/api.service"
 import { transactions } from "../types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit, faMagnifyingGlass, faMoneyBillTransfer, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faFilter, faMagnifyingGlass, faMoneyBillTransfer, faTrash } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Modal } from "../components/Modal";
 
 export const TransactionsList = () => {
   const navigate = useNavigate()
 
   const [data, setData] = useState<transactions[]>([]);
   const [errMsg, setErrMsg] = useState<string>();
+  const [modal, setModal] = useState<boolean>(false)
+
+  const renderedData = useMemo(() => {
+    return data
+  }, [data])
 
   const getAll = async () => {
     try {
@@ -38,6 +44,10 @@ export const TransactionsList = () => {
     }
   }
 
+  const confirmFilters = () => {
+    setModal(false)
+  }
+
   useEffect(() => {
     getAll()
   }, [])
@@ -50,12 +60,13 @@ export const TransactionsList = () => {
           <FontAwesomeIcon className="w-[10%]" icon={faMagnifyingGlass} />
           <input className="w-[90%] outline-none font-normal" placeholder="Search" type="search" />
         </label>
+        <FontAwesomeIcon onClick={() => setModal(true)} icon={faFilter} className="cursor-pointer" />
       </div>
 
       <List>
         {
-          (data && data.length > 0) ?
-            data.map(el => (
+          (renderedData && renderedData.length > 0) ?
+            renderedData.map(el => (
               <td className="border-b-1">
                 <div className="flex flex-row justify-between">
                   <div className="flex flex-row items-center gap-4">
@@ -81,6 +92,49 @@ export const TransactionsList = () => {
               <h1><strong>Transactions not registered!</strong></h1>
         }
       </List>
+      {
+        modal &&
+        <Modal>
+          <h1 className="font-bold">Set Filters</h1>
+          <hr />
+
+          <div className="flex flex-col gap-1 p-2">
+            <details className="flex flex-col ">
+              <summary>Type</summary>
+              <label><input defaultChecked type="checkbox" value='income' /> Income</label>
+              <label><input defaultChecked type="checkbox" value='expense' /> Expense</label>
+            </details>
+
+            <details className="flex flex-col ">
+              <summary>Interval</summary>
+              <label><input type="checkbox" value='none' /> None</label>
+              <label><input defaultChecked type="checkbox" value='daily' /> Daily</label>
+              <label><input defaultChecked type="checkbox" value='weekly' /> Weekly</label>
+              <label><input defaultChecked type="checkbox" value='monthly' /> Monthly</label>
+              <label><input defaultChecked type="checkbox" value='yearly' /> Yearly</label>
+            </details>
+
+            <div className="flex flex-row justify-between">
+              <p>User:</p>
+              <select className="w-[80%]">
+                <option>Choose an user</option>
+              </select>
+            </div>
+
+            <div className="flex flex-row justify-between">
+              <p>Category:</p>
+              <select className="w-[80%]">
+                <option>Choose an category</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="flex justify-end mt-4">
+            <button onClick={() => confirmFilters()} className="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">Save</button>
+            <button onClick={() => setModal(false)} className="cursor-pointer bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Cancel</button>
+          </div>
+        </Modal>
+      }
     </>
   )
 }
